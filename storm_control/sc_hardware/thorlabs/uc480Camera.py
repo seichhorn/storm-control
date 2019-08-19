@@ -711,7 +711,7 @@ if (__name__ == "__main__"):
     reps = 1000
 
     if False:
-        cam.setAOI(772, 566, 200, 200)
+        cam.setAOI(100, 100, 700, 100)
         cam.setFrameRate(verbose = True)
         for i in range(100):
             print("start", i)
@@ -724,8 +724,8 @@ if (__name__ == "__main__"):
 
     if False:
         cam.setAOI(100, 100, 300, 300)
-        cam.setPixelClock()
-        cam.setFrameRate()
+        cam.setPixelClock(25)
+        cam.setFrameRate(verbose=True)
         cam.startCapture()
         st = time.time()
         for i in range(reps):

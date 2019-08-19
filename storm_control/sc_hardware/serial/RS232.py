@@ -78,6 +78,9 @@ class RS232(object):
         """
         return self.live
 
+    def inWaiting(self):
+        return self.tty.inWaiting()
+
     def read(self, response_len):
         response = self.tty.read(response_len)
         return response.decode(self.encoding)

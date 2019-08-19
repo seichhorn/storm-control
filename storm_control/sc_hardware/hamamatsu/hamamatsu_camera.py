@@ -308,6 +308,8 @@ class HamamatsuCamera(object):
         self.max_width = self.getPropertyValue("image_width")[0]
         self.max_height = self.getPropertyValue("image_height")[0]
 
+        self.setPropertyValue("output_trigger_polarity[0]", 2)
+
 
     def captureSetup(self):
         """
@@ -936,7 +938,7 @@ if (__name__ == "__main__"):
         print("camera 0 model:", hcam.getModelInfo(0))
 
         # List support properties.
-        if False:
+        if True:
             print("Supported properties:")
             props = hcam.getProperties()
             for i, id_name in enumerate(sorted(props.keys())):
@@ -1003,7 +1005,7 @@ if (__name__ == "__main__"):
             hcam.stopAcquisition()
 
         # Test 'fixed_length' acquisition.
-        if True:
+        if False:
             for j in range (10000):
                 print("Testing fixed length acquisition")
                 hcam.setACQMode("fixed_length", number_frames = 10)

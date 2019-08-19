@@ -79,6 +79,7 @@ class XMLRecipeParser(QtWidgets.QWidget):
                                  daveActions.DASetProgression(),
                                  daveActions.DASetDirectory(),
                                  daveActions.DADelay(),
+                                 daveActions.DALightEngineWakeup(),
                                  daveActions.DAPause(),
                                  daveActions.DATakeMovie()]
 
@@ -143,7 +144,15 @@ class XMLRecipeParser(QtWidgets.QWidget):
                 
                 if new_node is not None:
                     primitives_xml.append(new_node)
-                    
+            elif child.tag == 'delay':
+                new_node = daveActions.DADelay().createETree({"delay": child.text})
+                if new_node is not None:
+                    primitives_xml.append(new_node)
+            elif child.tag == 'wakeup':
+                new_node = daveActions.DALightEngineWakeup().createETree({"wakeup": child.text})
+                if new_node is not None:
+                    primitives_xml.append(new_node)
+
             else:
                 pass
                 ## Eventually display an unknown tag error. For now ignore
