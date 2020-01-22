@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 """
 Generic Lumencor laser control via HTTP (ethernet connection).
 
